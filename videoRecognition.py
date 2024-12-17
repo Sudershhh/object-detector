@@ -8,7 +8,7 @@ s3 = boto3.client('s3')
 
 # Specify your S3 bucket and video
 bucket_name = "image-labels-generator"
-video_name = "nyc.mp4"
+video_name = "dinner.mp4"
 
 # Start label detection job
 response = rekognition.start_label_detection(
@@ -44,7 +44,7 @@ frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 # Initialize VideoWriter for saving output
-output_path = "./labeled_output.mp4"
+output_path = f"./{video_name}-output.mp4"
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Codec for .mp4 files
 out = cv2.VideoWriter(output_path, fourcc, fps, (frame_width, frame_height))
 
